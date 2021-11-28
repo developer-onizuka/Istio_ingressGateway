@@ -1,0 +1,65 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nginx-dog-vsvc
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - animals-gateway
+  http:
+  - match:
+    - uri:
+        prefix: "/dog"
+    route:
+    - destination:
+        port:
+          number: 8080
+        host: nginx-dog-svc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-dog-svc
+  labels:
+    app: nginx-dog-svc
+spec:
+  #type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 80
+    protocol: TCP
+    name: http
+    #nodePort: 30010
+  selector:
+    app: nginx-dog-test
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-dog-test
+spec:
+  selector:
+    matchLabels:
+      app: nginx-dog-test
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx-dog-test
+    spec:
+      volumes:
+      - name: nginx-dog-html
+        configMap:
+          name: nginx-dog-html
+      containers:
+      - name: nginx-dog-test
+        image: nginx
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html/dog
+          name: nginx-dog-html
+          readOnly: true
+        ports:
+        - containerPort: 8080
+        securityContext:
+          privileged: true
