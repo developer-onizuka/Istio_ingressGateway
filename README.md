@@ -14,7 +14,14 @@ kubectl create configmap nginx-cat-html --from-file=index.html
 kubectl apply -f nginx_cat.yaml
 cd -
 ```
+```
+# kubectl exec -it dnsutils -- nslookup nginx-cat-svc
+Server:		10.96.0.10
+Address:	10.96.0.10#53
 
+Name:	nginx-cat-svc.default.svc.cluster.local
+Address: 10.101.48.11
+```
 
 # 3. Service of Dog
 ```
@@ -22,6 +29,14 @@ cd dog
 kubectl create configmap nginx-dog-html --from-file=index.html
 kubectl apply -f nginx_dog.yaml
 cd -
+```
+```
+# kubectl exec -it dnsutils -- nslookup nginx-dog-svc
+Server:		10.96.0.10
+Address:	10.96.0.10#53
+
+Name:	nginx-dog-svc.default.svc.cluster.local
+Address: 10.97.229.181
 ```
 
 # 4. Check Istio gateway created for each service
