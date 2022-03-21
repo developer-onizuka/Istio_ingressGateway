@@ -214,15 +214,20 @@ V           ; ` , ` (                            ,'~~~~~~`,
 # 7-1. Create JWT
 > https://auth0.com/
 
-Step1) <br>
+Step1) Create a new Identifier <br>
 <img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_1.png" width="480">
 
-Step2) <br>
+Step2) Retrieve token to the API <br>
 <img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_2.png" width="640">
 
 # 7-2. RequestAuthentication and AuthorizationPolicy
 ```
 $ kubectl apply -f auth0-jwt.yaml
+```
+Please note issuer and jwksUri in auth0-jwt.yaml should be replaced with yours.
+```
+  - issuer: https://dev-dnkam18n.us.auth0.com/
+    jwksUri: https://dev-dnkam18n.us.auth0.com/.well-known/jwks.json
 ```
 
 # 7-3. Access without JWT Auth
