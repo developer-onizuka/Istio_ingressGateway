@@ -214,14 +214,14 @@ V           ; ` , ` (                            ,'~~~~~~`,
 # 7-1. Create JWT
 > https://auth0.com/
 
-Step1)
+Step1) <br>
 <img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_1.png" width="480">
 
-Step2)
-![ingress_auth0_2](https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_2.png)
+Step2) <br>
+<img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_2.png" width="480">
 
-Step3)
-![ingress_auth0_1](https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_3.png)
+Step3) <br>
+<img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_3.png" width="480">
 
 # 7-2. RequestAuthentication and AuthorizationPolicy
 ```
