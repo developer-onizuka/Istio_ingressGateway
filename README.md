@@ -69,7 +69,10 @@ prometheus-64fd8ccd65-pzff8             2/2     Running   14 (19d ago)   40d   1
 
 # 5. Access thru Browser
 ```
-# curl 192.168.121.220/cat/index.html
+# vi /etc/hosts
+192.168.33.220 animals.example.com
+
+# curl animals.example.com/cat/index.html
 cat
 <pre>
           | \\\                 /__\
@@ -101,7 +104,81 @@ cat
 </pre>
 ```
 ```
-# curl 192.168.121.220/dog/index.html
+# curl animals.example.com/dog/index.html
+dog
+<pre>
+          ____
+       ,-'-,  `---._
+_______(0} `, , ` , )
+V           ; ` , ` (                            ,'~~~~~~`,
+`.____,- '  (,  `  , )                          :`,-'""`. ";
+  `-------._);  ,  ` `,                         \;:      )``:
+         )  ) ; ` ,,  :                          ``      : ';
+        (  (`;:  ; ` ;:\                                 ;;;,
+        (:  )``;:;;)`'`'`--.    _____     ____       _,-';;`
+        :`  )`;)`)`'   :    "~~~     ~~~~~    ~~~`--',.;;;'
+        `--;~~~~~      `  ,  ", """,  "  "   "` ",, \ ;``
+          ( ;         ,   `                ;      `; ;
+          (; ; ;      `                   ,`       ` :
+           (; /            ;   ;          ` ;     ; :
+           ;(_; ;  :   ; ; `; ;` ; ; ,,,""";}     `;
+           : `; `; `  :  `  `,,;,''''   );;`);     ;
+           ;' :;   ; : ``'`'           (;` :( ; ,  ;
+           |, `;; ,``                  `)`; `(; `  `;
+           ;  ;;  ``:                   `).:` \;,   `.
+        ,-'   ;`;;:;`                   ;;'`;;  `)   )
+         ~~~,-`;`;,"                    ~~~~~  ,-'   ;
+            """"""                             `"""""
+</pre>
+```
+
+# 6. HTTPS Access
+# 6-1. Create certfile
+```
+$ openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=example Inc./CN=example.com' -keyout example.com.key -out example.com.crt
+$ openssl req -out animals.example.com.csr -newkey rsa:2048 -nodes -keyout animals.example.com.key -subj "/CN=animals.example.com/O=animals organization"
+$ openssl x509 -req -sha256 -days 365 -CA example.com.crt -CAkey example.com.key -set_serial 0 -in animals.example.com.csr -out animals.example.com.crt
+```
+# 6-2. Create Secret and Ingress-gateway
+```
+$ kubectl create -n istio-system secret tls animals-credential --key=animals.example.com.key --cert=animals.example.com.crt
+$ kubectl apply -f ingress-gateway-https.yaml
+```
+# 6-3. Let's access thru HTTPS
+```
+$ curl https://animals.example.com/cat/index.html -k
+cat
+<pre>
+          | \\\                 /__\
+         |.\\\ \               //--.i
+         i \\\\ \             ///// i
+         i \\\\\ \  _______  //////:|
+         i.\\\\\\ --|i | i|-- /////.|
+         |:\\\\  |||:i i iiii|  /// i
+         \ \     / i|i | |||i\      i
+         /       :| || i i| i       i
+         |       |:  i | | |i|      \
+         i        | || | i  i|       i
+        |      /     | : |     \\    i
+        |     //  __  :.:: __   \    i
+        |        / _\     / _\       i
+        |       | # \      # \       i
+        i  ___--| \_)      \_)--___  |
+        i====    \__/     \__/   ====|
+        i==                        ==|
+        i-            _-_           -i
+       /|             \ /            i
+     //  \    _ _ ---  | -- _       /
+    /    _\- -   _--   |  --_ --_  /
+   /    -  \_ _-  _-   |  --  -_  /_
+    /     _ -\_ -- -__/ \__- -_ _/_ -
+ //      -   _---__  \___/ --__/_  -
+           _-                    -_
+/
+</pre>
+```
+```
+$ curl https://animals.example.com/dog/index.html -k
 dog
 <pre>
           ____
