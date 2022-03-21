@@ -215,7 +215,7 @@ V           ; ` , ` (                            ,'~~~~~~`,
 > https://auth0.com/
 
 Step1)
-<img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_1.png" width="320">
+<img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_1.png" width="480">
 
 Step2)
 ![ingress_auth0_2](https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_2.png)
