@@ -208,7 +208,7 @@ V           ; ` , ` (                            ,'~~~~~~`,
 
 # 7. JWT authentication
 
-> https://istiobyexample.dev/jwt/
+> https://istiobyexample.dev/jwt/ <br>
 > https://tech.jxpress.net/entry/deploy-secure-api-with-istio-and-auth0-in-5-mins
 
 # 7-1. Create JWT
@@ -217,6 +217,11 @@ V           ; ` , ` (                            ,'~~~~~~`,
 Step1)
 ![ingress_auth0_1](https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_1.png)
 
+Step2)
+![ingress_auth0_2](https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_2.png)
+
+Step3)
+![ingress_auth0_1](https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_3.png)
 
 # 7-2. RequestAuthentication and AuthorizationPolicy
 ```
