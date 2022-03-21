@@ -214,6 +214,8 @@ V           ; ` , ` (                            ,'~~~~~~`,
 # 7-1. Create JWT
 > https://auth0.com/
 
+Step1)
+![ingress_auth0_1](https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_1.png)
 
 
 # 7-2. RequestAuthentication and AuthorizationPolicy
