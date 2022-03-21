@@ -230,13 +230,19 @@ Please note issuer and jwksUri in auth0-jwt.yaml should be replaced with yours.
     jwksUri: https://dev-dnkam18n.us.auth0.com/.well-known/jwks.json
 ```
 
-# 7-3. Access without JWT Auth
+# 7-3. Start Auth0 aware Pod
+```
+$ kubectl delete -f cat/nginx_cat.yaml
+$ kubectl apply -f cat/nginx_cat_jwt.yaml
+```
+
+# 7-4. Access without JWT Auth
 ```
 $ curl -k https://animals.example.com/cat/index.html
 RBAC: access denied
 ```
 
-# 7-4. Access without JWT Auth
+# 7-5. Access without JWT Auth
 ```
 $ curl -k https://animals.example.com/cat/index.html --header 'authorization: Bearer eyJhbGxxx.....xxx'
 cat
