@@ -218,10 +218,7 @@ Step1) <br>
 <img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_1.png" width="480">
 
 Step2) <br>
-<img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_2.png" width="480">
-
-Step3) <br>
-<img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_3.png" width="480">
+<img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_2.png" width="640">
 
 # 7-2. RequestAuthentication and AuthorizationPolicy
 ```
@@ -269,3 +266,5 @@ cat
 ```
 
 You can use [Modheader](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) with google-chrome instead of cURL.
+
+<img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_3.png" width="480">
