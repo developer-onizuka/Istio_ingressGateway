@@ -205,3 +205,60 @@ V           ; ` , ` (                            ,'~~~~~~`,
             """"""                             `"""""
 </pre>
 ```
+
+# 7. JWT authentication
+
+> https://istiobyexample.dev/jwt/
+> https://tech.jxpress.net/entry/deploy-secure-api-with-istio-and-auth0-in-5-mins
+
+# 7-1. Create JWT
+> https://auth0.com/
+
+
+
+# 7-2. RequestAuthentication and AuthorizationPolicy
+```
+$ kubectl apply -f auth0-jwt.yaml
+```
+
+# 7-3. Access without JWT Auth
+```
+$ curl -k https://animals.example.com/cat/index.html
+RBAC: access denied
+```
+
+# 7-4. Access without JWT Auth
+```
+$ curl -k https://animals.example.com/cat/index.html --header 'authorization: Bearer eyJhbGxxx.....xxx'
+cat
+<pre>
+          | \\\                 /__\
+         |.\\\ \               //--.i
+         i \\\\ \             ///// i
+         i \\\\\ \  _______  //////:|
+         i.\\\\\\ --|i | i|-- /////.|
+         |:\\\\  |||:i i iiii|  /// i
+         \ \     / i|i | |||i\      i
+         /       :| || i i| i       i
+         |       |:  i | | |i|      \
+         i        | || | i  i|       i
+        |      /     | : |     \\    i
+        |     //  __  :.:: __   \    i
+        |        / _\     / _\       i
+        |       | # \      # \       i
+        i  ___--| \_)      \_)--___  |
+        i====    \__/     \__/   ====|
+        i==                        ==|
+        i-            _-_           -i
+       /|             \ /            i
+     //  \    _ _ ---  | -- _       /
+    /    _\- -   _--   |  --_ --_  /
+   /    -  \_ _-  _-   |  --  -_  /_
+    /     _ -\_ -- -__/ \__- -_ _/_ -
+ //      -   _---__  \___/ --__/_  -
+           _-                    -_
+/
+</pre>
+```
+
+You can use [Modheader](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) with google-chrome instead of cURL.
