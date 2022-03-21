@@ -220,7 +220,7 @@ Step1) Create a new Identifier <br>
 Step2) Retrieve token to the API <br>
 <img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_2.png" width="640">
 
-# 7-2. RequestAuthentication and AuthorizationPolicy
+# 7-2. Create RequestAuthentication and AuthorizationPolicy
 ```
 $ kubectl apply -f auth0-jwt.yaml
 ```
