@@ -236,13 +236,13 @@ $ kubectl delete -f cat/nginx_cat.yaml
 $ kubectl apply -f cat/nginx_cat_jwt.yaml
 ```
 
-# 7-4. Access without JWT Auth
+# 7-4. Access without Bearer token
 ```
 $ curl -k https://animals.example.com/cat/index.html
 RBAC: access denied
 ```
 
-# 7-5. Access without JWT Auth
+# 7-5. Access without Bearer token
 ```
 $ curl -k https://animals.example.com/cat/index.html --header 'authorization: Bearer eyJhbGxxx.....xxx'
 cat
