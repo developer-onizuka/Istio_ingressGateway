@@ -217,7 +217,7 @@ V           ; ` , ` (                            ,'~~~~~~`,
 Step1) Create a new Identifier <br>
 <img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_1.png" width="480">
 
-Step2) Retrieve token to the API <br>
+Step2) Retrieve token to the API (Bearer token)<br>
 <img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_2.png" width="640">
 
 # 7-2. Create RequestAuthentication and AuthorizationPolicy
