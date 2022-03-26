@@ -327,6 +327,14 @@ cat
 /
 </pre>
 ```
+# A-5. Google Chrome
+You should convert the client certificate + the private key into a PKCS12 certificate.
+```
+$ openssl pkcs12 -export -inkey client.example.com.key -in client.example.com.crt -out client.example.com.p12
+```
+
+![mtls_clientCert1]()
+
 
 
 # 7. JWT authentication
