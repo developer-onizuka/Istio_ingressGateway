@@ -210,7 +210,7 @@ V           ; ` , ` (                            ,'~~~~~~`,
 # Appendix. Configure a mutal TLS ingress gateway (HTTPS)
 
 - mTLS authentication flow <br>
-![image](https://miro.medium.com/max/1190/1*AeygepIJxBwo9zbmgjGB2w.png)
+<img src="https://miro.medium.com/max/1190/1*AeygepIJxBwo9zbmgjGB2w.png" width="640">
 
 # A-0.
 ```
