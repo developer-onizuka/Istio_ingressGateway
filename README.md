@@ -212,7 +212,7 @@ V           ; ` , ` (                            ,'~~~~~~`,
 - mTLS authentication flow <br>
 ![image](https://miro.medium.com/max/1190/1*AeygepIJxBwo9zbmgjGB2w.png)
 
-# A-1. Change the gateway’s definition to set the TLS mode to MUTUAL
+# A-0.
 ```
 $ kubectl delete -n istio-system secrets animals-credential
 $ kubectl create -n istio-system secret generic animals-credential --from-file=tls.key=animals.example.com.key --from-file=tls.crt=animals.example.com.crt --from-file=ca.crt=example.com.crt
@@ -233,6 +233,16 @@ ca.crt:   1180 bytes
 tls.crt:  1054 bytes
 tls.key:  1704 bytes
 ```
+
+# A-1. Change the gateway’s definition to set the TLS mode to MUTUAL
+```
+$ kubectl edit gateway animals-gateway
+...
+    tls:
+      credentialName: animals-credential
+      mode: MUTUAL
+```
+
 # A-2. Attempt to send an HTTPS request using the prior approach and see how it fails
 ```
 $ curl -k https://animals.example.com/cat/index.html -v
