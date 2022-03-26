@@ -213,9 +213,56 @@ V           ; ` , ` (                            ,'~~~~~~`,
 ![image](https://miro.medium.com/max/1190/1*AeygepIJxBwo9zbmgjGB2w.png)
 
 # A-1. Change the gateway’s definition to set the TLS mode to MUTUAL
-
+```
+$ kubectl delete -n istio-system secrets animals-credential
+$ kubectl create -n istio-system secret generic animals-credential --from-file=tls.key=animals.example.com.key --from-file=ca.crt=animals.example.com.crt
+```
 # A-2. Attempt to send an HTTPS request using the prior approach and see how it fails
-
+```
+$ curl -k https://animals.example.com/cat/index.html -v
+*   Trying 192.168.33.220:443...
+* TCP_NODELAY set
+* Connected to animals.example.com (192.168.33.220) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*   CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: /etc/ssl/certs
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+* TLSv1.3 (IN), TLS handshake, Request CERT (13):
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+* TLSv1.3 (OUT), TLS handshake, Certificate (11):
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: CN=animals.example.com; O=animals organization
+*  start date: Mar 21 09:01:35 2022 GMT
+*  expire date: Mar 21 09:01:35 2023 GMT
+*  issuer: O=example Inc.; CN=example.com
+*  SSL certificate verify result: unable to get local issuer certificate (20), continuing anyway.
+* Using HTTP2, server supports multi-use
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+* Using Stream ID: 1 (easy handle 0x55975a3fd3b0)
+> GET /cat/index.html HTTP/2
+> Host: animals.example.com
+> user-agent: curl/7.68.0
+> accept: */*
+> 
+* TLSv1.3 (IN), TLS alert, unknown (628):
+* OpenSSL SSL_read: error:1409445C:SSL routines:ssl3_read_bytes:tlsv13 alert certificate required, errno 0
+* Failed receiving HTTP2 data
+* OpenSSL SSL_write: SSL_ERROR_ZERO_RETURN, errno 0
+* Failed sending HTTP2 data
+* Connection #0 to host animals.example.com left intact
+curl: (56) OpenSSL SSL_read: error:1409445C:SSL routines:ssl3_read_bytes:tlsv13 alert certificate required, errno 0
+```
 # A-3. Generate client certificate and private key
 
 # A-4. cURL
