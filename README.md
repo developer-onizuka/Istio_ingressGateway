@@ -215,7 +215,7 @@ V           ; ` , ` (                            ,'~~~~~~`,
 # A-1. Change the gateway’s definition to set the TLS mode to MUTUAL
 ```
 $ kubectl delete -n istio-system secrets animals-credential
-$ kubectl create -n istio-system secret generic animals-credential --from-file=tls.key=animals.example.com.key --from-file=ca.crt=animals.example.com.crt
+$ kubectl create -n istio-system secret generic animals-credential --from-file=tls.key=animals.example.com.key --from-file=tls.crt=animals.example.com.crt --from-file=ca.crt=example.com.crt
 ```
 # A-2. Attempt to send an HTTPS request using the prior approach and see how it fails
 ```
