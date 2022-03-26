@@ -264,9 +264,13 @@ $ curl -k https://animals.example.com/cat/index.html -v
 curl: (56) OpenSSL SSL_read: error:1409445C:SSL routines:ssl3_read_bytes:tlsv13 alert certificate required, errno 0
 ```
 # A-3. Generate client certificate and private key
-
+```
+$ openssl req -out client.example.com.csr -newkey rsa:2048 -nodes -keyout client.example.com.key -subj "/CN=client.example.com/O=client organization"
+```
 # A-4. cURL
+```
 
+```
 
 
 # 7. JWT authentication
