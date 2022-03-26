@@ -332,7 +332,7 @@ You should convert the client certificate + the private key into a PKCS12 certif
 ```
 $ openssl pkcs12 -export -inkey client.example.com.key -in client.example.com.crt -out client.example.com.p12
 ```
-<img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/mtls_clientCert1.png" width="480">
+<img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/mtls_clientCert1.png" width="640">
 <br>
 <img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/mtls_clientCert2.png" width="480">
 
