@@ -212,7 +212,7 @@ V           ; ` , ` (                            ,'~~~~~~`,
 - mTLS authentication flow <br>
 <img src="https://miro.medium.com/max/1190/1*AeygepIJxBwo9zbmgjGB2w.png" width="640">
 
-# A-0.
+# A-0. Create secrets for mutual TLS
 ```
 $ kubectl delete -n istio-system secrets animals-credential
 $ kubectl create -n istio-system secret generic animals-credential --from-file=tls.key=animals.example.com.key --from-file=tls.crt=animals.example.com.crt --from-file=ca.crt=example.com.crt
