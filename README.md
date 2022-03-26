@@ -283,7 +283,7 @@ $ openssl x509 -req -sha256 -days 365 -CA example.com.crt -CAkey example.com.key
 ```
 # A-4. cURL
 ```
-$ curl https://animals.example.com/cat/index.html --cacert example.com.crt --cert client.example.com.crt --key client.example.com.key -k
+$ curl https://animals.example.com/cat/index.html --cert client.example.com.crt --key client.example.com.key -k
 cat
 <pre>
           | \\\                 /__\
