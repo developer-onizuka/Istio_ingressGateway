@@ -68,7 +68,6 @@ prometheus-64fd8ccd65-pzff8             2/2     Running   14 (19d ago)   40d   1
 ```
 
 # 5. Access thru Browser
-If you find "HTTP/2 404" in curl's verbose output, then Check if another gateway was created. If you find it, delete it.
 ```
 # vi /etc/hosts
 192.168.33.220 animals.example.com
@@ -146,6 +145,7 @@ $ kubectl create -n istio-system secret tls animals-credential --key=animals.exa
 $ kubectl apply -f ingress-gateway-https.yaml
 ```
 # 6-3. Let's access thru HTTPS
+If you find "HTTP/2 404" in curl's verbose output, then Check if another gateway was created. If you find it, delete it.
 ```
 $ curl https://animals.example.com/cat/index.html -k
 cat
