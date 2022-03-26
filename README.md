@@ -216,6 +216,19 @@ V           ; ` , ` (                            ,'~~~~~~`,
 ```
 $ kubectl delete -n istio-system secrets animals-credential
 $ kubectl create -n istio-system secret generic animals-credential --from-file=tls.key=animals.example.com.key --from-file=tls.crt=animals.example.com.crt --from-file=ca.crt=example.com.crt
+$ kubectl -n istio-system describe secrets animals-credential
+Name:         animals-credential
+Namespace:    istio-system
+Labels:       <none>
+Annotations:  <none>
+
+Type:  Opaque
+
+Data
+====
+ca.crt:   1180 bytes
+tls.crt:  1054 bytes
+tls.key:  1704 bytes
 ```
 # A-2. Attempt to send an HTTPS request using the prior approach and see how it fails
 ```
