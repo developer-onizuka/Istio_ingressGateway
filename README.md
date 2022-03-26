@@ -270,7 +270,36 @@ $ openssl x509 -req -sha256 -days 365 -CA example.com.crt -CAkey example.com.key
 ```
 # A-4. cURL
 ```
-
+$ curl https://animals.example.com/cat/index.html --cacert example.com.crt --cert client.example.com.crt --key client.example.com.key -k
+cat
+<pre>
+          | \\\                 /__\
+         |.\\\ \               //--.i
+         i \\\\ \             ///// i
+         i \\\\\ \  _______  //////:|
+         i.\\\\\\ --|i | i|-- /////.|
+         |:\\\\  |||:i i iiii|  /// i
+         \ \     / i|i | |||i\      i
+         /       :| || i i| i       i
+         |       |:  i | | |i|      \
+         i        | || | i  i|       i
+        |      /     | : |     \\    i
+        |     //  __  :.:: __   \    i
+        |        / _\     / _\       i
+        |       | # \      # \       i
+        i  ___--| \_)      \_)--___  |
+        i====    \__/     \__/   ====|
+        i==                        ==|
+        i-            _-_           -i
+       /|             \ /            i
+     //  \    _ _ ---  | -- _       /
+    /    _\- -   _--   |  --_ --_  /
+   /    -  \_ _-  _-   |  --  -_  /_
+    /     _ -\_ -- -__/ \__- -_ _/_ -
+ //      -   _---__  \___/ --__/_  -
+           _-                    -_
+/
+</pre>
 ```
 
 
