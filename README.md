@@ -216,6 +216,9 @@ V           ; ` , ` (                            ,'~~~~~~`,
 ```
 $ kubectl delete -n istio-system secrets animals-credential
 $ kubectl create -n istio-system secret generic animals-credential --from-file=tls.key=animals.example.com.key --from-file=tls.crt=animals.example.com.crt --from-file=ca.crt=example.com.crt
+```
+A TLS Secret with keys tls.key and tls.crt, as described above. For mutual TLS, a ca.crt key can be used in addition.
+```
 $ kubectl -n istio-system describe secrets animals-credential
 Name:         animals-credential
 Namespace:    istio-system
