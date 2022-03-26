@@ -68,6 +68,7 @@ prometheus-64fd8ccd65-pzff8             2/2     Running   14 (19d ago)   40d   1
 ```
 
 # 5. Access thru Browser
+If you find "HTTP/2 404" Error, then Check if another gateway was created. If you find it, delete it.
 ```
 # vi /etc/hosts
 192.168.33.220 animals.example.com
