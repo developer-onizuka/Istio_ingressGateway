@@ -375,7 +375,7 @@ $ curl -k https://animals.example.com/cat/index.html
 RBAC: access denied
 ```
 
-# 7-5. Access without Bearer token
+# 7-5. Access with Bearer token
 ```
 $ curl -k https://animals.example.com/cat/index.html --header 'authorization: Bearer eyJhbGxxx.....xxx'
 cat
