@@ -348,10 +348,11 @@ You can import it as below:
 > https://auth0.com/
 
 **Step1) Create a new Identifier** <br>
-The identifier is used to identify which service the Istio IngressGateway takes API caller to. The Istio IngressGateway might host 3 or more services for API callers. API publisher(means you) should manage the JWT indivisually for each service.<br>
+
 <img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_1.png" width="480"><br>
 
-<img src="https://github.com/developer-onizuka/Diagrams/blob/main/Auth0.drawio.png">
+The identifier is used to identify which service the Istio IngressGateway takes API caller to. The Istio IngressGateway might host 3 or more services for API callers. API publisher(means you) should manage the JWT indivisually for each service.<br>
+<img src="https://github.com/developer-onizuka/Diagrams/blob/main/istioAuth0/Auth0.drawio.png">
 
 
 **Step2) Retrieve token to the API (Bearer token)**<br>
