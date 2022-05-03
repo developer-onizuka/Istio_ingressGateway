@@ -347,11 +347,11 @@ You can import it as below:
 # 7-1. Create JWT
 > https://auth0.com/
 
-Step1) Create a new Identifier <br>
+**Step1) Create a new Identifier** <br>
 The identifier is used to identify which service the Istio IngressGateway takes API caller to. The Istio IngressGateway might host 3 or more services for API callers. API publisher(means you) should manage the JWT indivisually for each service.
 <img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_1.png" width="480">
 
-Step2) Retrieve token to the API (Bearer token)<br>
+**Step2) Retrieve token to the API (Bearer token)**<br>
 <img src="https://github.com/developer-onizuka/Istio_ingressGateway/blob/main/ingress_auth0_2.png" width="640">
 
 # 7-2. Create RequestAuthentication and AuthorizationPolicy
