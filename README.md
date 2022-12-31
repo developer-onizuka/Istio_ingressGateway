@@ -8,6 +8,7 @@ kubectl apply -f ingress-gateway.yaml
 ```
 
 # 2. Service of Cat
+> https://amateur-engineer-blog.com/configmap-file-mount/
 ```
 cd cat
 kubectl create configmap nginx-cat-html --from-file=index.html
